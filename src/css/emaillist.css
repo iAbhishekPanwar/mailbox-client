@@ -99,14 +99,24 @@
   flex: 90%;
 }
 
+.emailbody__middle .emailbody__middle__msg {
+  display: flex;
+  width: 90%;
+}
 .emailbody .emailbody__middle p {
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0px 20px;
+  max-width: 700px;
 }
 
 .emailbody .emailbody__right {
   display: flex;
   align-items: center;
   flex: 10%;
+  justify-content: flex-end;
 }
 
 .emailbody .emailbody__right p {

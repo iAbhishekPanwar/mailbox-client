@@ -8,24 +8,30 @@ import { selectSendMessageIsOpen } from "./features/mailSlice";
 import Emaildetail from "./Emaildetail";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import { selectUser } from "./features/userSlice";
 
 function App() {
   const isMessageOpen = useSelector(selectSendMessageIsOpen);
+  const user = useSelector(selectUser);
   return (
     <Router>
-      <div className="App">
-        <Header />
+      {user && (
+        <div className="App">
+          <Header />
 
-        <div className="app__body">
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<Emaillist />} />
+          <div className="app__body">
+            <Sidebar />
+            <Routes>
+              <Route path="/" element={<Emaillist />} />
 
-            <Route path="/mail" element={<Emaildetail />} />
-          </Routes>
+              <Route path="/mail" element={<Emaildetail />} />
+            </Routes>
+          </div>
+          {isMessageOpen && <Compose />}
         </div>
-        {isMessageOpen && <Compose />}
-      </div>
+      )}
+      : {<Login />}
     </Router>
   );
 }

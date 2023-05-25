@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import { createSlice } from "@reduxjs/toolkit";
+// createAsyncThunk,
 export const mailSlice = createSlice({
   name: "mail",
   initialState: {

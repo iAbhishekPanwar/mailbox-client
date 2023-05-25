@@ -4,9 +4,10 @@ import Sidebar from "./Sidebar";
 import Emaillist from "./Emaillist";
 import Compose from "./Compose";
 import { useSelector } from "react-redux";
+import { selectSendMessageIsOpen } from "./features/mailSlice";
 
 function App() {
-  const isMessageOpen = useSelector();
+  const isMessageOpen = useSelector(selectSendMessageIsOpen);
   return (
     <div className="App">
       <Header />

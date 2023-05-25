@@ -17,11 +17,18 @@ import {
   Videocam,
   WatchLater,
 } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { openSendMessage } from "./features/mailSlice";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
   return (
     <div className="sidebar">
-      <Button startIcon={<AddIcon />} className="compose__btn">
+      <Button
+        startIcon={<AddIcon />}
+        className="compose__btn"
+        onClick={() => dispatch(openSendMessage())}
+      >
         Compose
       </Button>
       <Sidebaroptions
